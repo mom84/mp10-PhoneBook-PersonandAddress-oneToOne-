@@ -19,7 +19,7 @@ public class Starter {
     @Bean
     ApplicationRunner applicationRunner(PersonRepository personRepository) {
         return args -> {
-            personRepository.deleteAll();
+              personRepository.deleteAll();
             List<Person> persons = createPersons();
 
             personRepository.saveAll(persons);
@@ -39,7 +39,11 @@ public class Starter {
         diaa.setName("diaa");
         diaa.setAdress(new Adress("Schleifmülgasse"));
 
-        return Stream.of(mohammad,diaa)
+        Person dahman = new Person();
+        dahman.setName("dahman");
+        dahman.setAdress(new Adress("wienerNeustadt"));
+
+        return Stream.of(mohammad,diaa,dahman)
                 .collect(Collectors.toList());
     }
 
